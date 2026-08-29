@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
 import site
 
 HELPERS = '''
@@ -55,6 +56,11 @@ def replace_once(text: str, old: str, new: str) -> str:
 
 
 handler_path = find_handler()
+
+german_text_rules_src = Path("/tmp/german_text_rules.py")
+shutil.copy(german_text_rules_src, handler_path.parent / "german_text_rules.py")
+print(f"Installed german_text_rules.py next to {handler_path}")
+
 source = handler_path.read_text(encoding="utf-8")
 print(f"handler.py found at: {handler_path}")
 print(f"handler.py first 200 chars:\n{source[:200]}")
