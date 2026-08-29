@@ -70,7 +70,7 @@ if "GERMAN_SEPARATOR_DOT_PLACEHOLDER" in source:
 else:
     source = replace_once(source, "import logging\n", "import logging\nimport re\n")
 
-    import_line = "from german_text_rules import GERMAN_SEPARATOR_DOT_PATTERNS, GERMAN_SEPARATOR_DOT_PLACEHOLDER\n"
+    import_line = "from .german_text_rules import GERMAN_SEPARATOR_DOT_PATTERNS, GERMAN_SEPARATOR_DOT_PLACEHOLDER\n"
     if "from . import __version__\n" in source:
         source = replace_once(source, "from . import __version__\n", "from . import __version__\n" + import_line)
     else:
